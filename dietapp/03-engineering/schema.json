@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ThaliFit API Schemas",
+  "version": "0.1.0",
+  "definitions": {
+    "Lead": {
+      "type": "object",
+      "required": ["phone_e164", "source", "consent_whatsapp"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "phone_e164": { "type": "string", "pattern": "^\\+91[6-9]\\d{9}$" },
+        "email": { "type": "string", "format": "email" },
+        "source": { "type": "string", "enum": ["hero_form", "final_form", "bmi_widget", "ad", "referral"] },
+        "utm_source": { "type": ["string", "null"] },
+        "utm_campaign": { "type": ["string", "null"] },
+        "consent_whatsapp": { "type": "boolean" },
+        "created_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "User": {
+      "type": "object",
+      "required": ["id", "phone_e164", "created_at"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "phone_e164": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "language": { "type": "string", "enum": ["en", "hi"], "default": "en" },
+        "city": { "type": "string" },
+        "subscription_tier": { "type": "string", "enum": ["free", "premium", "premium_plus"], "default": "free" },
+        "created_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "HealthProfile": {
+      "type": "object",
+      "required": ["user_id", "gender", "age", "height_cm", "weight_kg", "diet_type", "goal"],
+      "properties": {
+        "user_id": { "type": "string", "format": "uuid" },
+        "gender": { "type": "string", "enum": ["female", "male", "other"] },
+        "age": { "type": "integer", "minimum": 13, "maximum": 90 },
+        "height_cm": { "type": "number", "minimum": 100, "maximum": 220 },
+        "weight_kg": { "type": "number", "minimum": 25, "maximum": 250 },
+        "waist_cm": { "type": ["number", "null"] },
+        "diet_type": { "type": "string", "enum": ["vegetarian", "non_vegetarian", "eggetarian", "jain", "vegan"] },
+        "religion_filter": { "type": ["string", "null"], "enum": ["halal", "no_beef", "no_pork", null] },
+        "region": { "type": "string", "enum": ["north", "south", "east", "west", "central"] },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["pcos", "type2_diabetes", "prediabetes", "hypothyroid", "hypertension", "none"] }
+        },
+        "goal": { "type": "string", "enum": ["weight_loss", "weight_maintain", "manage_pcos", "manage_diabetes", "pre_wedding"] },
+        "target_weight_kg": { "type": ["number", "null"] }
+      }
+    },
+    "MealPlan": {
+      "type": "object",
+      "required": ["id", "user_id", "start_date", "days"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "user_id": { "type": "string", "format": "uuid" },
+        "start_date": { "type": "string", "format": "date" },
+        "duration_days": { "type": "integer", "default": 7 },
+        "target_kcal": { "type": "integer" },
+        "macro_split": {
+          "type": "object",
+          "properties": {
+            "carb_pct": { "type": "integer" },
+            "protein_pct": { "type": "integer" },
+            "fat_pct": { "type": "integer" }
+          }
+        },
+        "days": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/MealPlanDay" }
+        }
+      }
+    },
+    "MealPlanDay": {
+      "type": "object",
+      "properties": {
+        "day_index": { "type": "integer", "minimum": 1, "maximum": 7 },
+        "meals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slot": { "type": "string", "enum": ["breakfast", "mid_morning", "lunch", "evening_snack", "dinner"] },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "food_id": { "type": "string", "format": "uuid" },
+                    "name_en": { "type": "string" },
+                    "name_hi": { "type": "string" },
+                    "qty": { "type": "number" },
+                    "unit": { "type": "string", "enum": ["roti", "katori", "glass", "piece", "tbsp", "tsp", "cup"] },
+                    "kcal": { "type": "number" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "FoodItem": {
+      "type": "object",
+      "required": ["id", "name_en", "default_unit", "kcal_per_unit"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name_en": { "type": "string" },
+        "name_hi": { "type": "string" },
+        "category": { "type": "string", "enum": ["grain", "dal", "sabzi", "dairy", "non_veg", "snack", "beverage", "sweet"] },
+        "region": { "type": "string", "enum": ["north", "south", "east", "west", "pan_indian"] },
+        "diet_tags": { "type": "array", "items": { "type": "string", "enum": ["veg", "non_veg", "egg", "jain_safe", "vegan"] } },
+        "default_unit": { "type": "string", "enum": ["roti", "katori", "glass", "piece", "tbsp", "tsp", "cup"] },
+        "kcal_per_unit": { "type": "number" },
+        "carb_g": { "type": "number" },
+        "protein_g": { "type": "number" },
+        "fat_g": { "type": "number" },
+        "gi": { "type": ["integer", "null"], "description": "Glycemic Index" },
+        "pcos_friendly": { "type": "boolean" },
+        "diabetes_friendly": { "type": "boolean" }
+      }
+    },
+    "ThaliLog": {
+      "type": "object",
+      "required": ["id", "user_id", "log_date", "slot", "items"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "user_id": { "type": "string", "format": "uuid" },
+        "log_date": { "type": "string", "format": "date" },
+        "slot": { "type": "string", "enum": ["breakfast", "mid_morning", "lunch", "evening_snack", "dinner"] },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "food_id": { "type": "string", "format": "uuid" },
+              "qty": { "type": "number" },
+              "unit": { "type": "string" }
+            }
+          }
+        },
+        "adherence": { "type": "string", "enum": ["matched_plan", "swapped", "skipped"] },
+        "logged_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "BMICheck": {
+      "type": "object",
+      "properties": {
+        "session_id": { "type": "string" },
+        "height_cm": { "type": "number" },
+        "weight_kg": { "type": "number" },
+        "bmi": { "type": "number" },
+        "category": { "type": "string", "enum": ["Underweight", "Healthy", "Overweight (Asian)", "Obese (Asian)"] },
+        "checked_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "endpoints": {
+    "POST /leads": { "request": { "$ref": "#/definitions/Lead" }, "response_201": { "$ref": "#/definitions/Lead" } },
+    "POST /users": { "request": { "$ref": "#/definitions/User" }, "response_201": { "$ref": "#/definitions/User" } },
+    "POST /users/{id}/health-profile": { "request": { "$ref": "#/definitions/HealthProfile" }, "response_201": { "$ref": "#/definitions/HealthProfile" } },
+    "POST /users/{id}/meal-plans/generate": { "request": { "type": "object" }, "response_201": { "$ref": "#/definitions/MealPlan" } },
+    "POST /users/{id}/thali-logs": { "request": { "$ref": "#/definitions/ThaliLog" }, "response_201": { "$ref": "#/definitions/ThaliLog" } },
+    "GET /food-items": { "query": { "search": "string", "diet_tag": "string", "region": "string" }, "response_200": { "type": "array", "items": { "$ref": "#/definitions/FoodItem" } } }
+  }
+}

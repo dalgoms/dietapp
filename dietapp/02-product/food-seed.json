@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "purpose": "db-design.md의 food_items 테이블 시드",
+    "source": "NIN IFCT 2017 + 영양사 검수 추정치",
+    "unit_convention": "kcal_per_unit는 default_unit 1개 기준",
+    "expansion_target": "MVP 1,200건, 시드 50건으로 시작"
+  },
+  "food_items": [
+    {"name_en":"Chapati (whole wheat)","name_hi":"चपाती","category":"grain","region":"north","diet_tags":["veg","jain_safe"],"default_unit":"roti","kcal_per_unit":80,"carb_g":15.0,"protein_g":3.0,"fat_g":0.5,"gi":62,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Bajra Roti","name_hi":"बाजरा रोटी","category":"grain","region":"west","diet_tags":["veg","vegan","jain_safe"],"default_unit":"roti","kcal_per_unit":97,"carb_g":18.5,"protein_g":3.0,"fat_g":1.0,"gi":54,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Jowar Roti","name_hi":"ज्वार रोटी","category":"grain","region":"south","diet_tags":["veg","vegan","jain_safe"],"default_unit":"roti","kcal_per_unit":85,"carb_g":17.0,"protein_g":2.5,"fat_g":0.5,"gi":62,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Plain Rice (boiled)","name_hi":"चावल","category":"grain","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":130,"carb_g":28.0,"protein_g":2.5,"fat_g":0.3,"gi":73,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Brown Rice","name_hi":"ब्राउन राइस","category":"grain","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":110,"carb_g":22.0,"protein_g":2.5,"fat_g":0.9,"gi":50,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Idli","name_hi":"इडली","category":"grain","region":"south","diet_tags":["veg"],"default_unit":"piece","kcal_per_unit":40,"carb_g":8.0,"protein_g":1.5,"fat_g":0.2,"gi":69,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Plain Dosa","name_hi":"डोसा","category":"grain","region":"south","diet_tags":["veg"],"default_unit":"piece","kcal_per_unit":120,"carb_g":18.0,"protein_g":3.0,"fat_g":4.0,"gi":77,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Oats Porridge (water)","name_hi":"ओट्स","category":"grain","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":150,"carb_g":27.0,"protein_g":5.0,"fat_g":3.0,"gi":55,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Poha","name_hi":"पोहा","category":"grain","region":"west","diet_tags":["veg"],"default_unit":"katori","kcal_per_unit":180,"carb_g":30.0,"protein_g":4.0,"fat_g":4.5,"gi":65,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Upma","name_hi":"उपमा","category":"grain","region":"south","diet_tags":["veg"],"default_unit":"katori","kcal_per_unit":190,"carb_g":28.0,"protein_g":4.5,"fat_g":6.0,"gi":68,"pcos_friendly":false,"diabetes_friendly":false},
+
+    {"name_en":"Moong Dal (yellow)","name_hi":"मूंग दाल","category":"dal","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":120,"carb_g":18.0,"protein_g":8.0,"fat_g":0.5,"gi":38,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Toor Dal","name_hi":"तूर दाल","category":"dal","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":140,"carb_g":20.0,"protein_g":9.0,"fat_g":1.0,"gi":29,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Chana Dal","name_hi":"चना दाल","category":"dal","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":160,"carb_g":22.0,"protein_g":10.0,"fat_g":2.0,"gi":8,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Rajma","name_hi":"राजमा","category":"dal","region":"north","diet_tags":["veg","vegan"],"default_unit":"katori","kcal_per_unit":175,"carb_g":24.0,"protein_g":11.0,"fat_g":1.5,"gi":29,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Black Chana","name_hi":"काला चना","category":"dal","region":"north","diet_tags":["veg","vegan"],"default_unit":"katori","kcal_per_unit":160,"carb_g":22.0,"protein_g":10.0,"fat_g":2.5,"gi":28,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Sambhar","name_hi":"सांभर","category":"dal","region":"south","diet_tags":["veg","vegan"],"default_unit":"katori","kcal_per_unit":110,"carb_g":15.0,"protein_g":6.0,"fat_g":2.5,"gi":35,"pcos_friendly":true,"diabetes_friendly":true},
+
+    {"name_en":"Palak Sabzi","name_hi":"पालक सब्ज़ी","category":"sabzi","region":"pan_indian","diet_tags":["veg","jain_safe"],"default_unit":"katori","kcal_per_unit":80,"carb_g":6.0,"protein_g":3.0,"fat_g":4.5,"gi":15,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Bhindi Sabzi","name_hi":"भिंडी","category":"sabzi","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":90,"carb_g":7.0,"protein_g":2.0,"fat_g":5.5,"gi":20,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Lauki Sabzi","name_hi":"लौकी","category":"sabzi","region":"north","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":60,"carb_g":5.0,"protein_g":1.5,"fat_g":3.5,"gi":15,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Mixed Veg Curry","name_hi":"मिक्स सब्ज़ी","category":"sabzi","region":"pan_indian","diet_tags":["veg"],"default_unit":"katori","kcal_per_unit":110,"carb_g":10.0,"protein_g":3.0,"fat_g":6.0,"gi":35,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Paneer Bhurji","name_hi":"पनीर भुर्जी","category":"sabzi","region":"north","diet_tags":["veg"],"default_unit":"katori","kcal_per_unit":260,"carb_g":5.0,"protein_g":15.0,"fat_g":20.0,"gi":18,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Aloo Sabzi","name_hi":"आलू सब्ज़ी","category":"sabzi","region":"pan_indian","diet_tags":["veg","vegan"],"default_unit":"katori","kcal_per_unit":160,"carb_g":22.0,"protein_g":3.0,"fat_g":7.0,"gi":78,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Baingan Bharta","name_hi":"बैंगन भर्ता","category":"sabzi","region":"north","diet_tags":["veg","vegan"],"default_unit":"katori","kcal_per_unit":110,"carb_g":9.0,"protein_g":2.5,"fat_g":7.0,"gi":15,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Avial","name_hi":"अवियल","category":"sabzi","region":"south","diet_tags":["veg"],"default_unit":"katori","kcal_per_unit":140,"carb_g":11.0,"protein_g":3.0,"fat_g":9.0,"gi":40,"pcos_friendly":true,"diabetes_friendly":true},
+
+    {"name_en":"Plain Curd","name_hi":"दही","category":"dairy","region":"pan_indian","diet_tags":["veg"],"default_unit":"katori","kcal_per_unit":60,"carb_g":4.0,"protein_g":3.5,"fat_g":3.0,"gi":14,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Buttermilk (chaas)","name_hi":"छाछ","category":"dairy","region":"pan_indian","diet_tags":["veg"],"default_unit":"glass","kcal_per_unit":40,"carb_g":4.0,"protein_g":2.5,"fat_g":1.5,"gi":15,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Paneer (cubes)","name_hi":"पनीर","category":"dairy","region":"pan_indian","diet_tags":["veg"],"default_unit":"katori","kcal_per_unit":260,"carb_g":3.0,"protein_g":18.0,"fat_g":20.0,"gi":18,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Toned Milk","name_hi":"दूध","category":"dairy","region":"pan_indian","diet_tags":["veg"],"default_unit":"glass","kcal_per_unit":120,"carb_g":12.0,"protein_g":7.0,"fat_g":4.5,"gi":31,"pcos_friendly":true,"diabetes_friendly":true},
+
+    {"name_en":"Grilled Chicken Breast","name_hi":"चिकन ब्रेस्ट","category":"non_veg","region":"pan_indian","diet_tags":["non_veg"],"default_unit":"katori","kcal_per_unit":165,"carb_g":0.0,"protein_g":31.0,"fat_g":3.6,"gi":0,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Chicken Curry","name_hi":"चिकन करी","category":"non_veg","region":"north","diet_tags":["non_veg"],"default_unit":"katori","kcal_per_unit":230,"carb_g":6.0,"protein_g":22.0,"fat_g":13.0,"gi":15,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Egg Bhurji","name_hi":"अंडा भुर्जी","category":"non_veg","region":"pan_indian","diet_tags":["egg"],"default_unit":"katori","kcal_per_unit":220,"carb_g":3.0,"protein_g":14.0,"fat_g":17.0,"gi":0,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Boiled Egg","name_hi":"उबला अंडा","category":"non_veg","region":"pan_indian","diet_tags":["egg"],"default_unit":"piece","kcal_per_unit":78,"carb_g":0.6,"protein_g":6.3,"fat_g":5.3,"gi":0,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Fish Curry (rohu)","name_hi":"मछली करी","category":"non_veg","region":"east","diet_tags":["non_veg"],"default_unit":"katori","kcal_per_unit":180,"carb_g":4.0,"protein_g":20.0,"fat_g":9.0,"gi":10,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Mutton Curry","name_hi":"मटन करी","category":"non_veg","region":"north","diet_tags":["non_veg"],"default_unit":"katori","kcal_per_unit":290,"carb_g":5.0,"protein_g":22.0,"fat_g":20.0,"gi":12,"pcos_friendly":false,"diabetes_friendly":true},
+
+    {"name_en":"Besan Chilla","name_hi":"बेसन चीला","category":"snack","region":"north","diet_tags":["veg"],"default_unit":"piece","kcal_per_unit":110,"carb_g":12.0,"protein_g":5.0,"fat_g":4.0,"gi":35,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Sprouts Salad","name_hi":"अंकुरित दाल","category":"snack","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":130,"carb_g":18.0,"protein_g":9.0,"fat_g":1.5,"gi":25,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Roasted Chana","name_hi":"भुना चना","category":"snack","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"katori","kcal_per_unit":160,"carb_g":22.0,"protein_g":10.0,"fat_g":2.0,"gi":28,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Dhokla","name_hi":"ढोकला","category":"snack","region":"west","diet_tags":["veg"],"default_unit":"piece","kcal_per_unit":40,"carb_g":6.0,"protein_g":2.0,"fat_g":1.0,"gi":50,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Samosa","name_hi":"समोसा","category":"snack","region":"north","diet_tags":["veg"],"default_unit":"piece","kcal_per_unit":260,"carb_g":24.0,"protein_g":4.0,"fat_g":17.0,"gi":75,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Mixed Nuts (almonds+walnut)","name_hi":"बादाम","category":"snack","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"tbsp","kcal_per_unit":90,"carb_g":3.0,"protein_g":3.0,"fat_g":8.0,"gi":15,"pcos_friendly":true,"diabetes_friendly":true},
+
+    {"name_en":"Masala Chai (with sugar)","name_hi":"मसाला चाय","category":"beverage","region":"pan_indian","diet_tags":["veg"],"default_unit":"glass","kcal_per_unit":90,"carb_g":13.0,"protein_g":2.0,"fat_g":3.0,"gi":60,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Green Tea","name_hi":"ग्रीन टी","category":"beverage","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"glass","kcal_per_unit":2,"carb_g":0.0,"protein_g":0.0,"fat_g":0.0,"gi":0,"pcos_friendly":true,"diabetes_friendly":true},
+    {"name_en":"Coconut Water","name_hi":"नारियल पानी","category":"beverage","region":"south","diet_tags":["veg","vegan","jain_safe"],"default_unit":"glass","kcal_per_unit":45,"carb_g":9.0,"protein_g":0.5,"fat_g":0.5,"gi":54,"pcos_friendly":true,"diabetes_friendly":false},
+    {"name_en":"Lassi (sweet)","name_hi":"लस्सी","category":"beverage","region":"north","diet_tags":["veg"],"default_unit":"glass","kcal_per_unit":180,"carb_g":24.0,"protein_g":5.0,"fat_g":7.0,"gi":35,"pcos_friendly":false,"diabetes_friendly":false},
+
+    {"name_en":"Gulab Jamun","name_hi":"गुलाब जामुन","category":"sweet","region":"north","diet_tags":["veg"],"default_unit":"piece","kcal_per_unit":150,"carb_g":21.0,"protein_g":2.0,"fat_g":7.0,"gi":78,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Rasgulla","name_hi":"रसगुल्ला","category":"sweet","region":"east","diet_tags":["veg"],"default_unit":"piece","kcal_per_unit":120,"carb_g":18.0,"protein_g":3.0,"fat_g":4.0,"gi":70,"pcos_friendly":false,"diabetes_friendly":false},
+    {"name_en":"Date (khajoor)","name_hi":"खजूर","category":"sweet","region":"pan_indian","diet_tags":["veg","vegan","jain_safe"],"default_unit":"piece","kcal_per_unit":23,"carb_g":6.0,"protein_g":0.2,"fat_g":0.0,"gi":42,"pcos_friendly":true,"diabetes_friendly":false}
+  ]
+}

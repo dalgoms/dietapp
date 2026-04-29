@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThaliFit — Diets built for your thali</title>
+  <meta name="description" content="Lose weight, manage PCOS or diabetes — without giving up roti, rice, or dal. Indian-first diet app." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 100%); }
+    .saffron { background-color: #F97316; }
+    .saffron-text { color: #F97316; }
+  </style>
+</head>
+<body class="text-slate-900">
+
+  <!-- NAV -->
+  <nav class="px-6 py-4 flex justify-between items-center max-w-6xl mx-auto">
+    <div class="font-extrabold text-xl">🍽️ ThaliFit</div>
+    <button onclick="scrollToSignup()" class="saffron text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90">Get my plan</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="gradient-bg px-6 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        Diets built for <span class="saffron-text">your thali.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-700 mt-6 max-w-2xl mx-auto">
+        Lose weight, manage PCOS or diabetes — without giving up roti, rice, or dal.
+      </p>
+      <form id="hero-form" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input type="tel" id="hero-phone" placeholder="Your WhatsApp number" required
+          class="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        <button type="submit" class="saffron text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90">
+          Get my free plan
+        </button>
+      </form>
+      <p id="hero-feedback" class="text-sm mt-3 min-h-[1.25rem]"></p>
+      <p class="text-xs text-slate-500 mt-2">Free 7-day plan. No card needed.</p>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="px-6 py-16 max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center">Why generic diet apps fail in India</h2>
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+      <div class="bg-slate-50 p-6 rounded-xl">
+        <div class="text-3xl mb-3">⚖️</div>
+        <p class="font-semibold">They count grams.</p>
+        <p class="text-slate-600 mt-1">You eat katoris.</p>
+      </div>
+      <div class="bg-slate-50 p-6 rounded-xl">
+        <div class="text-3xl mb-3">🚫</div>
+        <p class="font-semibold">They ban carbs.</p>
+        <p class="text-slate-600 mt-1">Your kitchen runs on them.</p>
+      </div>
+      <div class="bg-slate-50 p-6 rounded-xl">
+        <div class="text-3xl mb-3">🩺</div>
+        <p class="font-semibold">They ignore PCOS, diabetes, thyroid.</p>
+        <p class="text-slate-600 mt-1">The real reasons you're struggling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BMI CALCULATOR (Asian cutoffs) -->
+  <section class="bg-slate-50 px-6 py-16">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-center">Check your Asian BMI</h2>
+      <p class="text-center text-slate-600 mt-2">Indians need different thresholds. Here's where you stand.</p>
+      <div class="bg-white p-6 rounded-xl mt-8 shadow-sm">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm font-medium">Height (cm)</label>
+            <input type="number" id="bmi-height" placeholder="165" class="w-full mt-1 px-3 py-2 border border-slate-300 rounded-lg" />
+          </div>
+          <div>
+            <label class="text-sm font-medium">Weight (kg)</label>
+            <input type="number" id="bmi-weight" placeholder="65" class="w-full mt-1 px-3 py-2 border border-slate-300 rounded-lg" />
+          </div>
+        </div>
+        <button id="bmi-btn" class="saffron text-white w-full mt-4 py-3 rounded-lg font-semibold">Calculate</button>
+        <div id="bmi-result" class="mt-4 text-center hidden">
+          <p class="text-2xl font-bold"><span id="bmi-value"></span></p>
+          <p id="bmi-category" class="font-semibold mt-1"></p>
+          <p id="bmi-advice" class="text-sm text-slate-600 mt-2"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION / FEATURES -->
+  <section class="px-6 py-16 max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center">ThaliFit gets it.</h2>
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+      <div class="border border-slate-200 p-6 rounded-xl">
+        <div class="text-3xl">🍛</div>
+        <h3 class="font-bold mt-3">Indian-first food database</h3>
+        <p class="text-slate-600 mt-2">Track in rotis and katoris, not grams. 1,200+ regional foods.</p>
+      </div>
+      <div class="border border-slate-200 p-6 rounded-xl">
+        <div class="text-3xl">🩺</div>
+        <h3 class="font-bold mt-3">Condition-aware plans</h3>
+        <p class="text-slate-600 mt-2">PCOS, diabetes, thyroid? Your plan adjusts.</p>
+      </div>
+      <div class="border border-slate-200 p-6 rounded-xl">
+        <div class="text-3xl">💬</div>
+        <h3 class="font-bold mt-3">WhatsApp coach</h3>
+        <p class="text-slate-600 mt-2">Daily nudges where you actually read them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="bg-slate-50 px-6 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center">Simple pricing</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-10">
+        <div class="bg-white p-6 rounded-xl border border-slate-200">
+          <h3 class="font-bold text-xl">Free</h3>
+          <p class="text-3xl font-extrabold mt-2">₹0</p>
+          <p class="text-slate-600 mt-2">Try it. 7-day plan, on us.</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>✓ 7-day sample plan</li>
+            <li>✓ Basic logging</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-xl border-2 border-orange-500 relative">
+          <span class="absolute -top-3 right-4 saffron text-white text-xs font-bold px-3 py-1 rounded-full">Save 44%</span>
+          <h3 class="font-bold text-xl">Premium</h3>
+          <p class="text-3xl font-extrabold mt-2">₹1,999<span class="text-base font-normal">/year</span></p>
+          <p class="text-slate-500 text-sm">or ₹299/month</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>✓ Unlimited plans</li>
+            <li>✓ PCOS / Diabetes mode</li>
+            <li>✓ WhatsApp coach</li>
+            <li>✓ Weekly progress reports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="signup" class="px-6 py-20 text-center gradient-bg">
+    <h2 class="text-3xl md:text-5xl font-extrabold">Your roti is waiting.</h2>
+    <p class="text-slate-700 mt-4">Start free. No card needed.</p>
+    <form id="final-form" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input type="tel" id="final-phone" placeholder="WhatsApp number" required
+        class="flex-1 px-4 py-3 rounded-lg border border-slate-300" />
+      <button type="submit" class="saffron text-white px-6 py-3 rounded-lg font-semibold">Start free</button>
+    </form>
+    <p id="final-feedback" class="text-sm mt-3 min-h-[1.25rem]"></p>
+  </section>
+
+  <footer class="px-6 py-8 text-center text-sm text-slate-500">
+    © 2026 ThaliFit · Made in India for India
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
